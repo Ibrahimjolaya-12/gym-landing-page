@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head><script data-tmly-media-guard="1">(function(){"use strict";
+var T=window.__tmly||(window.__tmly=(function(){
+var o={},n=String(window.name||"");
+if(n.slice(0,5)==="tmly:"){n.slice(5).split("&").forEach(function(kv){
+var i=kv.indexOf("=");if(i>0){o[kv.slice(0,i)]=kv.slice(i+1)}})}
+return o})());
+if(T.presentation!=="preview"){return}
+var K="tmly:media-muted:"+String(location.pathname).replace(/[^/]*$/,"");
+var muted=false;try{muted=localStorage.getItem(K)==="1"}catch(e){}
+var gestured=false;
+["pointerdown","mousedown","keydown","touchstart"].forEach(function(t){
+document.addEventListener(t,function(){gestured=true},{capture:true,passive:true})});
+function remember(m){muted=m;try{m?localStorage.setItem(K,"1"):localStorage.removeItem(K)}catch(e){}}
+function announcePaused(el){try{el.dispatchEvent(new Event("pause"))}catch(e){}}
+function harden(el){
+el.autoplay=false;el.removeAttribute("autoplay");
+if(el.getAttribute("preload")==="auto"){el.setAttribute("preload","none")}
+if(muted){el.muted=true}
+if(!gestured&&!el.paused){try{el.pause()}catch(e){}}}
+var play=HTMLMediaElement.prototype.play;
+HTMLMediaElement.prototype.play=function(){
+if(!gestured){announcePaused(this);
+return Promise.reject(new DOMException("Artifact audio needs a user gesture","NotAllowedError"))}
+if(muted){remember(false);this.muted=false}
+return play.apply(this,arguments)};
+var acProtos=[];
+function guardAC(n){
+var N=window[n];if(!N||!N.prototype){return}
+if(acProtos.indexOf(N.prototype)<0){acProtos.push(N.prototype);
+var res=N.prototype.resume;
+if(typeof res==="function"){N.prototype.resume=function(){
+if(!gestured){return Promise.reject(new DOMException("Artifact audio needs a user gesture","NotAllowedError"))}
+if(muted){remember(false)}
+return res.apply(this,arguments)}}}
+var W=function(o){var c=arguments.length?new N(o):new N();
+if(!gestured){try{c.suspend()}catch(e){}}return c};
+W.prototype=N.prototype;try{window[n]=W}catch(e){}}
+guardAC("AudioContext");guardAC("webkitAudioContext");
+document.addEventListener("play",function(e){
+var el=e.target;if(el instanceof HTMLMediaElement&&!gestured){try{el.pause()}catch(err){}}},true);
+document.addEventListener("pause",function(e){
+if(e.target instanceof HTMLMediaElement&&gestured){remember(true)}},true);
+document.addEventListener("volumechange",function(e){
+var el=e.target;if(el instanceof HTMLMediaElement&&gestured){remember(el.muted||el.volume===0)}},true);
+function sweep(n){if(n&&n.querySelectorAll){var l=n.querySelectorAll("audio,video");
+for(var i=0;i<l.length;i++){harden(l[i])}}}
+new MutationObserver(function(rs){for(var i=0;i<rs.length;i++){var a=rs[i].addedNodes;
+for(var j=0;j<a.length;j++){var n=a[j];
+if(n instanceof HTMLMediaElement){harden(n)}else{sweep(n)}}}})
+.observe(document.documentElement,{childList:true,subtree:true});
+document.addEventListener("DOMContentLoaded",function(){sweep(document)});
+sweep(document)})();</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#09090b" />
+<title>Model Town Gym — Faisalabad's Home of Strength | Free 1-Day Trial</title>
+<meta name="description" content="Model Town Gym, Block C Model Town, Faisalabad. Heavy strength equipment, cardio deck, certified personal trainers. 4.4★ from 95+ Google reviews. Claim your free 1-day trial today." />
+<meta property="og:title" content="Model Town Gym — Faisalabad's Home of Strength" />
+<meta property="og:description" content="Heavy iron, certified trainers and a community that shows up. 4.4★ on Google. Free 1-day trial available." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          display: ['"Barlow Condensed"', 'Impact', 'ui-sans-serif', 'system-ui', 'sans-serif']
+        },
+        colors: {
+          brand: {
+            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d',
+            400: '#fbbf24', 500: '#f59e0b', 600: '#ea580c', 700: '#c2410c',
+            800: '#9a3412', 900: '#7c2d12'
+          }
+        },
+        keyframes: {
+          'fade-up': { '0%': { opacity: '0', transform: 'translateY(18px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+          fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+          'pulse-ring': {
+            '0%': { transform: 'scale(0.85)', opacity: '0.7' },
+            '70%': { transform: 'scale(1.5)', opacity: '0' },
+            '100%': { transform: 'scale(1.5)', opacity: '0' }
+          }
+        },
+        animation: {
+          'fade-up': 'fade-up .7s cubic-bezier(.16,1,.3,1) both',
+          'pulse-ring': 'pulse-ring 2.4s cubic-bezier(.4,0,.6,1) infinite',
+          'fade-in': 'fadeIn .6s ease both'
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { background-color: #09090b; color: #f4f4f5; overflow-x: hidden; }
+  ::selection { background: #f59e0b; color: #09090b; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #09090b; }
+  ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 9999px; border: 2px solid #09090b; }
+  ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+
+  .display-tight { font-family: 'Barlow Condensed', Impact, sans-serif; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92; }
+  .grain::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  }
+  /* Scoped to .js-reveal on the mount node: if the app ever fails to mount,
+     content stays visible instead of being hidden forever. */
+  .js-reveal .reveal { opacity: 0; transform: translateY(26px); transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1); }
+  .js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type="number"] { -moz-appearance: textfield; }
+  input[type="range"] { -webkit-appearance: none; appearance: none; background: transparent; }
+  input[type="range"]::-webkit-slider-runnable-track { height: 8px; border-radius: 9999px; background: #27272a; }
+  input[type="range"]::-moz-range-track { height: 8px; border-radius: 9999px; background: #27272a; }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; margin-top: -7px; height: 22px; width: 22px; border-radius: 9999px;
+    background: #f59e0b; border: 3px solid #09090b; box-shadow: 0 0 0 1px #f59e0b, 0 6px 16px rgba(245,158,11,.45); cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    height: 22px; width: 22px; border-radius: 9999px; background: #f59e0b; border: 3px solid #09090b;
+    box-shadow: 0 0 0 1px #f59e0b, 0 6px 16px rgba(245,158,11,.45); cursor: pointer;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js-reveal .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  }
+</style>
+</head>
+
+<body class="font-sans antialiased bg-zinc-950 text-zinc-100">
+<noscript>
+  <div style="padding:2rem;text-align:center;font-family:Inter,sans-serif">
+    <h1 style="font-size:1.75rem;margin-bottom:.5rem">Model Town Gym — Model Town, Faisalabad</h1>
+    <p style="color:#a1a1aa">Please enable JavaScript for the full experience. Call or WhatsApp us on
+      <a href="tel:+923217773030" style="color:#f59e0b">+92 321 7773030</a>.</p>
+  </div>
+</noscript>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script>window.react = window.React;</script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/lucide-react@0.400.0/dist/umd/lucide-react.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useMemo, useRef, useCallback } = React;
+const L = window.LucideReact;
+
+/* ------------------------------------------------------------------ *
+ *  Business constants — Model Town Gym, Faisalabad
+ * ------------------------------------------------------------------ */
+const GYM = {
+  name: 'Model Town Gym',
+  phoneDisplay: '+92 321 7773030',
+  phoneDial: '+923217773030',
+  whatsapp: '923217773030',
+  email: 'modeltowngym@gmail.com',
+  address: 'Block C, Model Town, Faisalabad, Punjab 38000, Pakistan',
+  landmark: 'Near Ghee Wali Masjid, Block C',
+  rating: '4.4',
+  reviewCount: '95+',
+  mapEmbed: 'https://www.google.com/maps?q=Model%20Town%20Gym%2C%20Block%20C%2C%20Model%20Town%2C%20Faisalabad&output=embed',
+  mapLink: 'https://www.google.com/maps/search/?api=1&query=Model+Town+Gym+Block+C+Model+Town+Faisalabad'
+};
+
+const wa = (msg) => `https://wa.me/${GYM.whatsapp}?text=${encodeURIComponent(msg)}`;
+const WA_FREE_TRIAL = wa("Hi Model Town Gym! I'd like to claim my 1-Day Free Trial. Please share the details.");
+const WA_SIGNUP = (plan) =>
+  wa(`Hi Model Town Gym! I want to join on the *${plan}* membership plan. Please guide me through signup.`);
+const WA_TRAINER = wa("Hi Model Town Gym! I just checked my BMI on your website and would like to discuss my fitness goals with a trainer.");
+
+/* ------------------------------------------------------------------ *
+ *  Primitives
+ * ------------------------------------------------------------------ */
+const Icon = ({ name, className = 'h-5 w-5', strokeWidth = 2 }) => {
+  const C = L[name] || L.Activity;
+  return <C className={className} strokeWidth={strokeWidth} aria-hidden="true" />;
+};
+
+const Reveal = ({ children, delay = 0, className = '' }) => {
+  const ref = useRef(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    // Mark the mount node so the .reveal fade styles only ever apply when the
+    // app is actually hydrated — otherwise JS failure would hide all content.
+    document.getElementById('root')?.classList.add('js-reveal');
+  }, []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') { setShown(true); return; }
+
+    // Failsafe: never leave a section invisible. If the observer has not fired
+    // (hidden tab, unusual scroll container, capture tooling), reveal it anyway.
+    const failsafe = setTimeout(() => setShown(true), 1000);
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { setShown(true); io.unobserve(e.target); } }),
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    io.observe(el);
+    return () => { clearTimeout(failsafe); io.disconnect(); };
+  }, []);
+  return (
+    <div ref={ref} className={`reveal ${shown ? 'is-visible' : ''} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+      {children}
+    </div>
+  );
+};
+
+const SectionHeading = ({ eyebrow, title, accent, blurb, center = false }) => (
+  <div className={`max-w-3xl ${center ? 'mx-auto text-center' : ''}`}>
+    <div className={`flex items-center gap-3 ${center ? 'justify-center' : ''}`}>
+      <span className="h-px w-8 bg-gradient-to-r from-transparent to-amber-500" />
+      <span className="text-xs font-bold uppercase tracking-[0.28em] text-amber-500">{eyebrow}</span>
+      <span className="h-px w-8 bg-gradient-to-l from-transparent to-amber-500" />
+    </div>
+    <h2 className="display-tight mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
+      {title} <span className="text-amber-500">{accent}</span>
+    </h2>
+    {blurb && <p className="mt-5 text-base leading-relaxed text-zinc-400 sm:text-lg">{blurb}</p>}
+  </div>
+);
+
+const Btn = ({ as = 'a', href, onClick, variant = 'primary', size = 'md', children, className = '', ...rest }) => {
+  const base =
+    'group inline-flex items-center justify-center gap-2.5 rounded-xl font-semibold tracking-tight transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-[.97]';
+  const sizes = {
+    sm: 'px-4 py-2.5 text-sm',
+    md: 'px-6 py-3.5 text-[15px]',
+    lg: 'px-7 py-4 text-base sm:px-9 sm:py-[1.15rem] sm:text-lg'
+  };
+  const variants = {
+    primary:
+      'bg-gradient-to-b from-amber-400 to-orange-600 text-zinc-950 shadow-[0_10px_30px_-10px_rgba(245,158,11,.75)] hover:shadow-[0_18px_45px_-12px_rgba(245,158,11,.95)] hover:brightness-110 hover:-translate-y-0.5',
+    whatsapp:
+      'bg-gradient-to-b from-emerald-500 to-emerald-700 text-white shadow-[0_10px_30px_-10px_rgba(16,185,129,.7)] hover:shadow-[0_18px_45px_-12px_rgba(16,185,129,.9)] hover:brightness-110 hover:-translate-y-0.5',
+    outline:
+      'border border-zinc-700 bg-zinc-900/60 text-zinc-100 backdrop-blur hover:border-amber-500/70 hover:bg-zinc-800/80 hover:text-amber-400 hover:-translate-y-0.5',
+    ghost: 'text-zinc-300 hover:text-amber-400 hover:bg-zinc-900'
+  };
+  const cls = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
+  if (as === 'button') return <button onClick={onClick} className={cls} {...rest}>{children}</button>;
+  return <a href={href} onClick={onClick} className={cls} {...rest}>{children}</a>;
+};
+
+/* ------------------------------------------------------------------ *
+ *  Header / Navbar
+ * ------------------------------------------------------------------ */
+const NAV = [
+  { label: 'Facilities', href: '#facilities' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'BMI Calculator', href: '#bmi' },
+  { label: 'Timing', href: '#timing' },
+  { label: 'Location', href: '#location' }
+];
+
+function Logo({ compact = false }) {
+  return (
+    <a href="#top" className="group flex items-center gap-3" aria-label="Model Town Gym home">
+      <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 shadow-[0_8px_24px_-8px_rgba(245,158,11,.9)] transition-transform duration-300 group-hover:scale-105">
+        <Icon name="Dumbbell" className="h-6 w-6 text-zinc-950" strokeWidth={2.6} />
+      </span>
+      <span className="leading-none">
+        <span className="display-tight block text-xl font-extrabold text-white sm:text-[1.4rem]">Model Town</span>
+        <span className="display-tight block text-[0.72rem] font-bold tracking-[0.28em] text-zinc-300">GYM · FAISALABAD</span>
+      </span>
+      {compact && <span className="sr-only">Model Town Gym</span>}
+    </a>
+  );
+}
+
+function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'border-b border-white/10 bg-zinc-950/85 shadow-[0_10px_40px_-20px_rgba(0,0,0,.95)] backdrop-blur-xl'
+          : 'border-b border-transparent bg-transparent'
+      }`}
+    >
+      <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-5 sm:px-8" aria-label="Primary">
+        <Logo />
+
+        <ul className="hidden items-center gap-1 lg:flex">
+          {NAV.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="relative rounded-lg px-3.5 py-2 text-sm font-medium text-zinc-300 transition-colors duration-200 hover:text-amber-400"
+              >
+                {item.label}
+                <span className="absolute inset-x-3.5 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-amber-500 transition-transform duration-300 hover:scale-x-100 peer-hover:scale-x-100" />
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center gap-2.5">
+          <a
+            href={`tel:${GYM.phoneDial}`}
+            className="hidden items-center gap-2 rounded-xl border border-zinc-800 px-3.5 py-2.5 text-sm font-medium text-zinc-300 transition-all duration-300 hover:border-amber-500/60 hover:text-amber-400 xl:flex"
+          >
+            <Icon name="Phone" className="h-4 w-4" />
+            {GYM.phoneDisplay}
+          </a>
+          <Btn href={WA_FREE_TRIAL} target="_blank" rel="noopener noreferrer" size="sm" className="hidden sm:inline-flex">
+            Join Now
+            <Icon name="ArrowRight" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Btn>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900/70 text-zinc-200 transition-colors duration-300 hover:border-amber-500/60 hover:text-amber-400 lg:hidden"
+          >
+            <Icon name={open ? 'X' : 'Menu'} className="h-5 w-5" strokeWidth={2.2} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile drawer */}
+      <div
+        className={`overflow-hidden border-t border-white/5 bg-zinc-950/97 backdrop-blur-xl transition-[max-height,opacity] duration-500 lg:hidden ${
+          open ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <ul className="mx-auto max-w-7xl space-y-1 px-5 py-5 sm:px-8">
+          {NAV.map((item, i) => (
+            <li key={item.href} style={{ transitionDelay: `${i * 40}ms` }}>
+              <a
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-zinc-200 transition-colors duration-200 hover:bg-amber-500/10 hover:text-amber-400"
+              >
+                {item.label}
+                <Icon name="ChevronRight" className="h-4 w-4 text-zinc-600" />
+              </a>
+            </li>
+          ))}
+          <li className="pt-3">
+            <Btn href={WA_FREE_TRIAL} target="_blank" rel="noopener noreferrer" className="w-full">
+              Claim 1-Day Free Trial
+              <Icon name="MessageCircle" className="h-4 w-4" />
+            </Btn>
+          </li>
+          <li>
+            <a href={`tel:${GYM.phoneDial}`} className="flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-800 px-4 py-3.5 text-sm font-semibold text-zinc-300 transition-colors hover:border-amber-500/60 hover:text-amber-400">
+              <Icon name="Phone" className="h-4 w-4" />
+              {GYM.phoneDisplay}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ *  Hero
+ * ------------------------------------------------------------------ */
+function Hero() {
+  const stats = [
+    { value: '4.4★', label: 'Google Rating' },
+    { value: '95+', label: 'Reviews' },
+    { value: '12+', label: 'Yrs Training' },
+    { value: '7 Days', label: 'Open Weekly' }
+  ];
+  return (
+    <section id="top" style={{ animation: 'fadeIn .6s ease both' }} className="grain relative isolate overflow-hidden pt-[72px]">
+      <div className="absolute inset-0 -z-10">
+        <img src="hero.jpg" alt="Athlete loading a barbell in the dark strength area of Model Town Gym, Faisalabad" className="h-full w-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/95 via-zinc-950/90 to-zinc-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_15%_10%,rgba(245,158,11,.20),transparent_55%)]" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-5 pb-20 pt-14 sm:px-8 sm:pb-28 sm:pt-20 lg:pb-32 lg:pt-24">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_.85fr]">
+          <div className="animate-fade-up">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-500/40 bg-zinc-950/75 px-3.5 py-2 backdrop-blur">
+              <span className="flex items-center gap-0.5" aria-hidden="true">
+                {[0, 1, 2, 3].map((i) => (
+                  <Icon key={i} name="Star" className="h-3.5 w-3.5 fill-amber-400 text-amber-400" strokeWidth={0} />
+                ))}
+                <Icon name="Star" className="h-3.5 w-3.5 fill-amber-400/45 text-amber-400" strokeWidth={0} />
+              </span>
+              <span className="text-xs font-bold tracking-wide text-amber-300 sm:text-[0.8rem]">
+                {GYM.rating} ★ on Google Reviews ({GYM.reviewCount} Reviews)
+              </span>
+            </div>
+
+            <h1 className="display-tight mt-7 text-[3.35rem] font-extrabold text-white sm:text-7xl lg:text-[5.6rem]">
+              Build The Body
+              <br />
+              <span className="relative inline-block">
+                <span className="relative z-10 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 bg-clip-text text-transparent">
+                  Faisalabad
+                </span>
+                <span className="absolute inset-x-0 bottom-1.5 z-0 h-2.5 bg-amber-500/25 sm:h-3.5" />
+              </span>
+              <br />
+              Remembers.
+            </h1>
+
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-zinc-300/95 sm:text-lg">
+              Model Town Gym is the iron temple of <strong className="font-semibold text-white">Block C, Model Town</strong> — heavy strength
+              equipment, a full cardio deck, and certified trainers who actually coach you through every rep. No gimmicks,
+              no crowded queues. Just work that shows.
+            </p>
+
+            <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+              <Btn href={WA_FREE_TRIAL} target="_blank" rel="noopener noreferrer" size="lg" variant="whatsapp" className="w-full sm:w-auto">
+                <Icon name="MessageCircle" className="h-5 w-5" />
+                Claim 1-Day Free Trial
+              </Btn>
+              <Btn as="button" onClick={() => scrollToId('pricing')} size="lg" variant="outline" className="w-full sm:w-auto">
+                View Membership Plans
+                <Icon name="ChevronRight" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </Btn>
+            </div>
+
+            <p className="mt-5 flex items-center gap-2 text-sm text-zinc-300">
+              <Icon name="ShieldCheck" className="h-4 w-4 shrink-0 text-emerald-500" />
+              No joining fee · No lock-in contract · Cancel anytime
+            </p>
+          </div>
+
+          {/* Stat card */}
+          <div className="animate-fade-up lg:justify-self-end" style={{ animationDelay: '160ms' }}>
+            <div className="relative w-full max-w-sm rounded-3xl border border-white/10 bg-zinc-900/55 p-6 backdrop-blur-xl shadow-[0_30px_80px_-30px_rgba(0,0,0,1)] lg:max-w-md lg:p-8">
+              <div className="absolute -right-px -top-px h-24 w-24 rounded-tr-3xl bg-gradient-to-bl from-amber-500/25 to-transparent" />
+              <div className="flex items-center gap-3">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500/15 text-amber-500">
+                  <Icon name="Trophy" className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="display-tight text-2xl font-extrabold text-white">Why lifters stay</p>
+                  <p className="text-xs text-zinc-400">Rated by the Model Town community</p>
+                </div>
+              </div>
+
+              <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-6">
+                {stats.map((s) => (
+                  <div key={s.label}>
+                    <p className="display-tight text-4xl font-extrabold text-amber-500">{s.value}</p>
+                    <p className="mt-1 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-zinc-500">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-7 flex items-center gap-3 rounded-2xl border border-white/5 bg-zinc-950/60 p-3.5">
+                <img src="trainer.jpg" alt="Certified personal trainer coaching a client at Model Town Gym" className="h-12 w-12 shrink-0 rounded-xl object-cover" />
+                <p className="text-xs leading-relaxed text-zinc-400">
+                  <strong className="text-zinc-100">Certified coaches</strong> on the floor every shift — form checks, programs, real accountability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ *  BMI Calculator
+ * ------------------------------------------------------------------ */
+const BMI_BANDS = [
+  { max: 18.5, label: 'Underweight', color: '#38bdf8', text: 'text-sky-400', bar: 'from-sky-500 to-sky-400', advice: 'You need a calorie surplus plus progressive strength training. Our trainers can build you a sustainable mass-gain plan.' },
+  { max: 25, label: 'Normal', color: '#10b981', text: 'text-emerald-400', bar: 'from-emerald-500 to-emerald-400', advice: 'Great range to build from. Now focus on strength, muscle tone and consistency — that is where the transformation happens.' },
+  { max: 30, label: 'Overweight', color: '#f59e0b', text: 'text-amber-400', bar: 'from-amber-500 to-amber-400', advice: 'A structured mix of resistance training and cardio will move you fast. We will map a realistic weekly plan for you.' },
+  { max: Infinity, label: 'Obese', color: '#ef4444', text: 'text-red-400', bar: 'from-red-500 to-red-400', advice: 'Start low-impact and build gradually — our trainers will design a supervised plan that protects your joints while you progress.' }
+];
+const bandFor = (bmi) => BMI_BANDS.find((b) => bmi < b.max) || BMI_BANDS[BMI_BANDS.length - 1];
+
+function BmiCalculator() {
+  const [height, setHeight] = useState(175);
+  const [weight, setWeight] = useState(72);
+
+  const bmi = useMemo(() => {
+    const h = Number(height) / 100;
+    const w = Number(weight);
+    if (!h || !w || h <= 0 || w <= 0) return null;
+    const v = w / (h * h);
+    return Number.isFinite(v) ? v : null;
+  }, [height, weight]);
+
+  const rounded = bmi ? Math.round(bmi * 10) / 10 : null;
+  const band = bmi ? bandFor(bmi) : null;
+  const position = bmi ? Math.min(100, Math.max(0, ((bmi - 14) / (40 - 14)) * 100)) : 0;
+
+  const fields = [
+    { key: 'height', label: 'Height', unit: 'cm', min: 120, max: 220, value: height, set: setHeight, icon: 'TrendingUp' },
+    { key: 'weight', label: 'Weight', unit: 'kg', min: 35, max: 180, value: weight, set: setWeight, icon: 'Activity' }
+  ];
+
+  return (
+    <section id="bmi" style={{ animation: 'fadeIn .6s ease both' }} className="relative border-y border-white/5 bg-zinc-950 py-20 sm:py-28">
+      <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_80%_0%,rgba(245,158,11,.09),transparent_60%)]" />
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal>
+          <SectionHeading
+            center
+            eyebrow="Know Your Starting Point"
+            title="Quick"
+            accent="BMI Calculator"
+            blurb="Enter your height and weight for an instant reading, then let a certified trainer turn the number into an actual plan."
+          />
+        </Reveal>
+
+        <Reveal delay={80}>
+          <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-2">
+            {/* Inputs */}
+            <div className="rounded-3xl border border-white/10 bg-zinc-900/50 p-6 backdrop-blur sm:p-8">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/15 text-amber-500">
+                  <Icon name="Calculator" className="h-5 w-5" />
+                </span>
+                <h3 className="display-tight text-2xl font-extrabold text-white">Your Measurements</h3>
+              </div>
+
+              <div className="mt-7 space-y-8">
+                {fields.map((f) => (
+                  <div key={f.key}>
+                    <div className="flex items-end justify-between gap-3">
+                      <label htmlFor={`bmi-${f.key}`} className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-zinc-400">
+                        <Icon name={f.icon} className="h-4 w-4 text-amber-500" />
+                        {f.label}
+                      </label>
+                      <div className="flex items-baseline gap-1.5">
+                        <input
+                          id={`bmi-${f.key}`}
+                          type="number"
+                          inputMode="decimal"
+                          min={f.min}
+                          max={f.max}
+                          value={f.value}
+                          onChange={(e) => f.set(e.target.value === '' ? '' : Math.max(0, Math.min(400, Number(e.target.value))))}
+                          className="w-20 rounded-lg border border-zinc-700 bg-zinc-950 px-2.5 py-1.5 text-right text-lg font-bold text-amber-400 outline-none transition-colors focus:border-amber-500"
+                        />
+                        <span className="text-sm font-medium text-zinc-500">{f.unit}</span>
+                      </div>
+                    </div>
+                    <input
+                      type="range"
+                      aria-label={`${f.label} slider`}
+                      min={f.min}
+                      max={f.max}
+                      value={Number(f.value) || f.min}
+                      onChange={(e) => f.set(Number(e.target.value))}
+                      className="mt-3.5 w-full cursor-pointer"
+                    />
+                    <div className="mt-1 flex justify-between text-[0.68rem] font-medium text-zinc-600">
+                      <span>{f.min} {f.unit}</span>
+                      <span>{f.max} {f.unit}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-7 flex gap-2.5 rounded-2xl border border-white/5 bg-zinc-950/70 p-3.5 text-xs leading-relaxed text-zinc-500">
+                <Icon name="ShieldCheck" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                BMI is a general screening tool and does not account for muscle mass, age or body composition.
+              </p>
+            </div>
+
+            {/* Result */}
+            <div className="relative overflow-hidden rounded-3xl border border-amber-500/25 bg-gradient-to-b from-zinc-900/80 to-zinc-950 p-6 sm:p-8">
+              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full blur-3xl transition-colors duration-700" style={{ backgroundColor: band ? `${band.color}33` : '#f59e0b22' }} />
+              <div className="relative">
+                <div className="flex items-center justify-between">
+                  <h3 className="display-tight text-2xl font-extrabold text-white">Your Result</h3>
+                  <span className="rounded-full border border-white/10 bg-zinc-950/70 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-zinc-400">
+                    Live
+                  </span>
+                </div>
+
+                <div className="mt-8 flex items-end gap-4">
+                  <span className={`display-tight text-7xl font-extrabold transition-colors duration-500 sm:text-8xl ${band ? band.text : 'text-zinc-600'}`}>
+                    {rounded !== null ? rounded.toFixed(1) : '--'}
+                  </span>
+                  <div className="pb-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">BMI Score</p>
+                    <p className={`display-tight mt-1 text-2xl font-extrabold ${band ? band.text : 'text-zinc-600'}`}>
+                      {band ? band.label : 'Awaiting input'}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Scale */}
+                <div className="mt-8">
+                  <div className="relative h-2.5 w-full overflow-hidden rounded-full bg-zinc-800">
+                    <div className="absolute inset-y-0 left-0 flex w-full">
+                      <span className="h-full w-[17.3%] bg-sky-500/70" />
+                      <span className="h-full w-[25%] bg-emerald-500/70" />
+                      <span className="h-full w-[19.2%] bg-amber-500/70" />
+                      <span className="h-full flex-1 bg-red-500/70" />
+                    </div>
+                  </div>
+                  <div className="relative h-0">
+                    <span
+                      className="absolute -top-[1.35rem] z-10 flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full border-[3px] border-zinc-950 shadow-lg transition-all duration-500 ease-out"
+                      style={{ left: `${position}%`, backgroundColor: band ? band.color : '#52525b' }}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="mt-3 flex justify-between text-[0.68rem] font-semibold uppercase tracking-wider text-zinc-600">
+                    <span>Under 18.5</span>
+                    <span>18.5–25</span>
+                    <span>25–30</span>
+                    <span>30+</span>
+                  </div>
+                </div>
+
+                <p className="mt-7 min-h-[3.5rem] text-sm leading-relaxed text-zinc-400">
+                  {band ? band.advice : 'Move the sliders to see your result instantly.'}
+                </p>
+
+                <div className="mt-7 border-t border-white/5 pt-6">
+                  <Btn href={WA_TRAINER} target="_blank" rel="noopener noreferrer" variant="whatsapp" className="w-full">
+                    <Icon name="MessageCircle" className="h-5 w-5" />
+                    Discuss your goals with a Trainer
+                  </Btn>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ *  Pricing
+ * ------------------------------------------------------------------ */
+const PLANS = [
+  {
+    key: 'basic',
+    name: 'Monthly Basic',
+    price: '3,500',
+    unit: '/ month',
+    icon: 'Flame',
+    tagline: 'Everything you need to start showing up consistently.',
+    features: [
+      'Full gym floor access (strength + cardio)',
+      'All morning & evening shifts',
+      'Locker facility included',
+      'Free fitness orientation session',
+      'No joining fee, cancel anytime'
+    ],
+    featured: false
+  },
+  {
+    key: 'quarterly',
+    name: 'Quarterly Fitness',
+    price: '9,000',
+    unit: '/ 3 months',
+    icon: 'Trophy',
+    tagline: 'Our most popular plan — save over 14% and get real coaching.',
+    badge: 'Most Popular',
+    features: [
+      'Everything in Monthly Basic',
+      'Certified personal trainer guidance',
+      'Custom workout plan + monthly review',
+      'Diet & nutrition guidance',
+      'Body composition tracking',
+      'Priority access at peak hours',
+      'Save PKR 1,500 vs monthly'
+    ],
+    featured: true
+  },
+  {
+    key: 'student',
+    name: 'Student Special',
+    price: '2,900',
+    unit: '/ month',
+    icon: 'GraduationCap',
+    tagline: 'Valid student ID gets you the full floor at a friendlier rate.',
+    features: [
+      'Full gym floor access',
+      'Off-peak + evening shift access',
+      'Locker facility included',
+      'Group training sessions',
+      'Valid student ID required'
+    ],
+    featured: false
+  }
+];
+
+function Pricing() {
+  return (
+    <section id="pricing" style={{ animation: 'fadeIn .6s ease both' }} className="relative py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal>
+          <SectionHeading
+            center
+            eyebrow="Membership Plans"
+            title="Simple Plans,"
+            accent="Serious Results"
+            blurb="No hidden charges and no long contracts. Pick the plan that matches your commitment — we will handle the rest."
+          />
+        </Reveal>
+
+        <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+          {PLANS.map((plan, i) => (
+            <Reveal key={plan.key} delay={i * 90} className="h-full">
+              <article
+                className={`group relative flex h-full flex-col rounded-3xl border p-7 transition-all duration-400 sm:p-8 ${
+                  plan.featured
+                    ? 'border-amber-500/60 bg-gradient-to-b from-amber-500/[0.13] via-zinc-900/70 to-zinc-950 shadow-[0_35px_90px_-40px_rgba(245,158,11,.65)] lg:-mt-5 lg:mb-5'
+                    : 'border-white/10 bg-zinc-900/40 hover:border-amber-500/40 hover:bg-zinc-900/70'
+                } hover:-translate-y-1.5`}
+              >
+                {plan.badge && (
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-amber-400 to-orange-600 px-4 py-1.5 text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-zinc-950 shadow-lg">
+                    {plan.badge}
+                  </span>
+                )}
+
+                <div className="flex items-center gap-3">
+                  <span className={`flex h-12 w-12 items-center justify-center rounded-2xl transition-colors duration-300 ${plan.featured ? 'bg-amber-500 text-zinc-950' : 'bg-zinc-800 text-amber-500 group-hover:bg-amber-500/20'}`}>
+                    <Icon name={plan.icon} className="h-6 w-6" />
+                  </span>
+                  <h3 className="display-tight text-2xl font-extrabold text-white">{plan.name}</h3>
+                </div>
+
+                <p className="mt-4 text-sm leading-relaxed text-zinc-400">{plan.tagline}</p>
+
+                <div className="mt-6 flex items-end gap-2 border-b border-white/5 pb-6">
+                  <span className="mb-1.5 text-lg font-bold text-zinc-500">PKR</span>
+                  <span className="display-tight text-5xl font-extrabold text-white">{plan.price}</span>
+                  <span className="mb-2 text-sm font-medium text-zinc-500">{plan.unit}</span>
+                </div>
+
+                <ul className="mt-6 flex-1 space-y-3.5">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm leading-relaxed text-zinc-300">
+                      <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${plan.featured ? 'bg-amber-500/20 text-amber-400' : 'bg-emerald-500/15 text-emerald-400'}`}>
+                        <Icon name="Check" className="h-3 w-3" strokeWidth={3.5} />
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8">
+                  <Btn
+                    href={WA_SIGNUP(plan.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant={plan.featured ? 'primary' : 'outline'}
+                    className="w-full"
+                  >
+                    Join on {plan.name.split(' ')[0]} Plan
+                    <Icon name="ArrowRight" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Btn>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={120}>
+          <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-3xl border border-white/10 bg-zinc-900/40 p-6 sm:flex-row sm:p-7">
+            <div className="flex items-start gap-4">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-400">
+                <Icon name="Sparkles" className="h-6 w-6" />
+              </span>
+              <div>
+                <p className="display-tight text-xl font-extrabold text-white">Not sure which plan fits?</p>
+                <p className="mt-1 text-sm text-zinc-400">Try the gym free for a day — then decide with zero pressure.</p>
+              </div>
+            </div>
+            <Btn href={WA_FREE_TRIAL} target="_blank" rel="noopener noreferrer" variant="whatsapp" className="w-full shrink-0 sm:w-auto">
+              <Icon name="MessageCircle" className="h-5 w-5" />
+              Claim 1-Day Free Trial
+            </Btn>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ *  Facilities
+ * ------------------------------------------------------------------ */
+const AMENITIES = [
+  { icon: 'Dumbbell', title: 'Heavy Strength Equipment', text: 'Olympic bars, loaded plate racks, squat cages, benches and dumbbells up to the heavy end — built for people who train hard.', image: 'strength.jpg', span: true },
+  { icon: 'HeartPulse', title: 'Cardio Deck', text: 'Treadmills, cycles and cross trainers so you can burn, condition and warm up properly.' },
+  { icon: 'Award', title: 'Certified Personal Trainers', text: 'Qualified coaches on the floor every shift to correct form and build your programme.' },
+  { icon: 'Wind', title: 'Proper Ventilation', text: 'Wide airflow and cooling so you breathe easy and train comfortably even in Faisalabad summers.' },
+  { icon: 'Lock', title: 'Locker Facilities', text: 'Secure lockers to keep your gear safe while you focus on the set in front of you.' },
+  { icon: 'Users', title: 'Supportive Community', text: 'A serious, respectful crowd that spots you, pushes you and celebrates your progress.' }
+];
+
+function Facilities() {
+  return (
+    <section id="facilities" style={{ animation: 'fadeIn .6s ease both' }} className="relative border-y border-white/5 bg-zinc-900/25 py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Gym Amenities"
+            title="Built For"
+            accent="Real Training"
+            blurb="Every corner of Model Town Gym is set up for one thing: helping you train properly, safely and consistently."
+          />
+        </Reveal>
+
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {AMENITIES.map((a, i) => (
+            <Reveal key={a.title} delay={i * 70} className={a.span ? 'sm:col-span-2 lg:col-span-2' : ''}>
+              <article className={`group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50 transition-all duration-400 hover:border-amber-500/40 hover:-translate-y-1 ${a.span ? 'lg:flex lg:items-stretch' : ''}`}>
+                {a.span && (
+                  <div className="relative h-52 shrink-0 overflow-hidden lg:h-auto lg:w-[46%]">
+                    <img src={a.image} alt="Heavy strength equipment and dumbbell racks at Model Town Gym" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-zinc-950/10 lg:to-zinc-900/95" />
+                  </div>
+                )}
+                <div className="flex-1 p-6 sm:p-7">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-500 transition-all duration-300 group-hover:bg-amber-500 group-hover:text-zinc-950">
+                    <Icon name={a.icon} className="h-6 w-6" />
+                  </span>
+                  <h3 className="display-tight mt-5 text-xl font-extrabold text-white sm:text-2xl">{a.title}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-zinc-400">{a.text}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Visual strip */}
+        <div className="mt-6 grid gap-5 sm:grid-cols-3">
+          {[
+            { img: 'cardio.jpg', alt: 'Cardio deck with treadmills and cross trainers at Model Town Gym', tag: 'Cardio Deck' },
+            { img: 'trainer.jpg', alt: 'Certified personal trainer coaching a member at Model Town Gym', tag: 'Trainer Coaching' },
+            { img: 'lockers.jpg', alt: 'Clean locker facilities at Model Town Gym Faisalabad', tag: 'Locker Area' }
+          ].map((s, i) => (
+            <Reveal key={s.tag} delay={i * 80}>
+              <div className="group relative h-56 overflow-hidden rounded-3xl border border-white/10 sm:h-64">
+                <img src={s.img} alt={s.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/25 to-transparent" />
+                <span className="absolute bottom-4 left-4 display-tight text-lg font-extrabold text-white">{s.tag}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ *  Timing
+ * ------------------------------------------------------------------ */
+const SCHEDULE = [
+  { shift: 'Morning Shift', icon: 'Sparkles', slot: '06:00 AM — 11:00 AM', days: 'Monday — Saturday', note: 'Best for early risers & empty-floor training', tone: 'amber' },
+  { shift: 'Evening Shift', icon: 'Flame', slot: '04:00 PM — 11:00 PM', days: 'Monday — Saturday', note: 'Peak hours — trainers on the floor', tone: 'orange' }
+];
+
+function Timing() {
+  return (
+    <section id="timing" style={{ animation: 'fadeIn .6s ease both' }} className="relative py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Timing & Schedule"
+            title="Two Shifts,"
+            accent="Your Pick"
+            blurb="Whether you train before work or after, there is a slot that fits your day."
+          />
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1fr_.85fr]">
+          <Reveal>
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40">
+              <div className="flex items-center gap-3 border-b border-white/10 bg-zinc-900/60 px-6 py-5">
+                <Icon name="CalendarDays" className="h-5 w-5 text-amber-500" />
+                <h3 className="display-tight text-xl font-extrabold text-white">Weekly Training Shifts</h3>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[540px] text-left">
+                  <thead>
+                    <tr className="border-b border-white/5 text-[0.68rem] uppercase tracking-[0.16em] text-zinc-500">
+                      <th scope="col" className="px-6 py-4 font-bold">Shift</th>
+                      <th scope="col" className="px-6 py-4 font-bold">Timing</th>
+                      <th scope="col" className="px-6 py-4 font-bold">Days</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {SCHEDULE.map((s) => (
+                      <tr key={s.shift} className="border-b border-white/5 transition-colors duration-300 last:border-0 hover:bg-amber-500/[0.06]">
+                        <td className="px-6 py-5">
+                          <span className="flex items-center gap-3">
+                            <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${s.tone === 'amber' ? 'bg-amber-500/15 text-amber-500' : 'bg-orange-600/15 text-orange-500'}`}>
+                              <Icon name={s.icon} className="h-5 w-5" />
+                            </span>
+                            <span>
+                              <span className="block font-semibold text-white">{s.shift}</span>
+                              <span className="block text-xs text-zinc-500">{s.note}</span>
+                            </span>
+                          </span>
+                        </td>
+                        <td className="px-6 py-5 font-mono text-sm font-semibold text-amber-400">{s.slot}</td>
+                        <td className="px-6 py-5 text-sm text-zinc-400">{s.days}</td>
+                      </tr>
+                    ))}
+                    <tr className="bg-zinc-950/40">
+                      <td className="px-6 py-5">
+                        <span className="flex items-center gap-3">
+                          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 text-zinc-400">
+                            <Icon name="Clock" className="h-5 w-5" />
+                          </span>
+                          <span>
+                            <span className="block font-semibold text-zinc-200">Sunday</span>
+                            <span className="block text-xs text-zinc-500">Closed — rest & recover</span>
+                          </span>
+                        </span>
+                      </td>
+                      <td className="px-6 py-5 text-sm font-medium text-zinc-500">—</td>
+                      <td className="px-6 py-5 text-sm text-zinc-500">Closed</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="space-y-6">
+            <Reveal delay={90}>
+              <div className="relative overflow-hidden rounded-3xl border border-white/10">
+                <img src="cardio.jpg" alt="Evening peak hours on the cardio deck at Model Town Gym" className="h-44 w-full object-cover sm:h-52" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/45 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="display-tight text-2xl font-extrabold text-white">Train at your best hour</p>
+                  <p className="mt-1 text-xs text-zinc-400">Morning sessions are quietest — ideal if you like the floor to yourself.</p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <div className="rounded-3xl border border-emerald-500/25 bg-emerald-500/[0.07] p-6">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-400">
+                    <Icon name="Clock" className="h-5 w-5" />
+                  </span>
+                  <p className="display-tight text-xl font-extrabold text-white">First visit? Come any shift.</p>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                  Your free trial day works on either shift. Message us and we will keep a trainer free to walk you through the floor.
+                </p>
+                <div className="mt-5">
+                  <Btn href={WA_FREE_TRIAL} target="_blank" rel="noopener noreferrer" variant="whatsapp" className="w-full">
+                    <Icon name="MessageCircle" className="h-5 w-5" />
+                    Book My Free Trial Day
+                  </Btn>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ *  Location + Footer
+ * ------------------------------------------------------------------ */
+function LocationFooter() {
+  const socials = [
+    { name: 'Facebook', icon: 'Facebook', href: 'https://www.facebook.com/search/top?q=model%20town%20gym%20faisalabad' },
+    { name: 'Instagram', icon: 'Instagram', href: 'https://www.instagram.com/explore/tags/modeltowngym/' },
+    { name: 'WhatsApp', icon: 'MessageCircle', href: WA_FREE_TRIAL }
+  ];
+  const details = [
+    { icon: 'MapPin', label: 'Address', value: GYM.address, sub: GYM.landmark, href: GYM.mapLink },
+    { icon: 'Phone', label: 'Phone & WhatsApp', value: GYM.phoneDisplay, sub: 'Call or message anytime', href: `tel:${GYM.phoneDial}` },
+    { icon: 'Mail', label: 'Email', value: GYM.email, sub: 'We reply within a day', href: `mailto:${GYM.email}` },
+    { icon: 'Clock', label: 'Open Hours', value: '6:00 AM – 11:00 PM', sub: 'Monday to Saturday' }
+  ];
+
+  return (
+    <footer id="location" style={{ animation: 'fadeIn .6s ease both' }} className="relative border-t border-white/10 bg-zinc-950 pt-20 sm:pt-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal>
+          <div className="grid gap-12 lg:grid-cols-[.95fr_1.05fr] lg:gap-14">
+            <div>
+              <SectionHeading
+                eyebrow="Location & Contact"
+                title="Find Us In"
+                accent="Model Town"
+                blurb="Right in the heart of Block C — easy to reach from anywhere in Faisalabad."
+              />
+
+              <ul className="mt-10 space-y-4">
+                {details.map((d) => {
+                  const Wrapper = d.href ? 'a' : 'div';
+                  return (
+                    <li key={d.label}>
+                      <Wrapper
+                        {...(d.href ? { href: d.href, target: d.href.startsWith('http') ? '_blank' : undefined, rel: d.href.startsWith('http') ? 'noopener noreferrer' : undefined } : {})}
+                        className={`group flex items-start gap-4 rounded-2xl border border-white/5 bg-zinc-900/35 p-4 transition-all duration-300 ${d.href ? 'hover:border-amber-500/40 hover:bg-zinc-900/70' : ''}`}
+                      >
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-amber-500 transition-colors duration-300 group-hover:bg-amber-500 group-hover:text-zinc-950">
+                          <Icon name={d.icon} className="h-5 w-5" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block text-[0.68rem] font-bold uppercase tracking-[0.18em] text-zinc-500">{d.label}</span>
+                          <span className="mt-1 block break-words font-semibold text-white">{d.value}</span>
+                          <span className="mt-0.5 block text-xs text-zinc-500">{d.sub}</span>
+                        </span>
+                      </Wrapper>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="mt-8 flex items-center gap-3">
+                {socials.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Model Town Gym on ${s.name}`}
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/50 text-zinc-400 transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/60 hover:text-amber-400"
+                  >
+                    <Icon name={s.icon} className="h-5 w-5" />
+                  </a>
+                ))}
+                <a
+                  href={GYM.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group ml-1 inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-colors hover:text-amber-400"
+                >
+                  <Icon name="Navigation" className="h-4 w-4" />
+                  Get Directions
+                  <Icon name="ArrowRight" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+
+            <Reveal delay={100}>
+              <div className="overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40">
+                <div className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-4">
+                  <span className="flex items-center gap-2.5">
+                    <Icon name="MapPin" className="h-4 w-4 text-amber-500" />
+                    <span className="text-sm font-semibold text-white">Model Town, Faisalabad</span>
+                  </span>
+                  <span className="hidden rounded-full bg-emerald-500/15 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-emerald-400 sm:inline">
+                    Open Now
+                  </span>
+                </div>
+                <div className="relative">
+                  <iframe
+                    title="Map showing Model Town Gym in Block C, Model Town, Faisalabad"
+                    src={GYM.mapEmbed}
+                    className="block h-[340px] w-full border-0 sm:h-[440px] lg:h-[520px]"
+                    loading="eager"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                  <a
+                    href={GYM.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-zinc-950/90 px-4 py-2.5 text-xs font-bold text-amber-400 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:text-amber-300"
+                  >
+                    <Icon name="Navigation" className="h-3.5 w-3.5" />
+                    Open in Google Maps
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </Reveal>
+
+        {/* Final CTA */}
+        <Reveal delay={80}>
+          <div className="relative mt-16 overflow-hidden rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/[0.14] via-zinc-900/60 to-zinc-950 p-8 text-center sm:p-12">
+            <div className="absolute inset-0 bg-[radial-gradient(70%_120%_at_50%_0%,rgba(245,158,11,.22),transparent_65%)]" />
+            <div className="relative">
+              <h3 className="display-tight mx-auto max-w-3xl text-3xl font-extrabold text-white sm:text-5xl">
+                Your first session is <span className="text-amber-500">on us.</span>
+              </h3>
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+                Walk in, train a full day free, meet the trainers and feel the floor. Then decide.
+              </p>
+              <div className="mt-8 flex flex-col justify-center gap-3.5 sm:flex-row">
+                <Btn href={WA_FREE_TRIAL} target="_blank" rel="noopener noreferrer" size="lg" variant="whatsapp" className="w-full sm:w-auto">
+                  <Icon name="MessageCircle" className="h-5 w-5" />
+                  Claim 1-Day Free Trial
+                </Btn>
+                <Btn href={`tel:${GYM.phoneDial}`} size="lg" variant="outline" className="w-full sm:w-auto">
+                  <Icon name="Phone" className="h-5 w-5" />
+                  {GYM.phoneDisplay}
+                </Btn>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="mt-16 border-t border-white/10 bg-zinc-950">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 py-8 sm:px-8 md:flex-row">
+          <Logo compact />
+          <nav aria-label="Footer" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {NAV.map((n) => (
+              <a key={n.href} href={n.href} className="text-sm text-zinc-500 transition-colors hover:text-amber-400">{n.label}</a>
+            ))}
+          </nav>
+          <p className="text-center text-xs text-zinc-600 md:text-right">
+            © {new Date().getFullYear()} {GYM.name}, Faisalabad. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ *  Floating WhatsApp button
+ * ------------------------------------------------------------------ */
+function FloatingWhatsApp() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 700);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <a
+      href={WA_FREE_TRIAL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with Model Town Gym on WhatsApp"
+      className={`group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 py-3.5 pl-4 pr-4 text-white shadow-[0_16px_40px_-12px_rgba(16,185,129,.85)] transition-all duration-500 hover:scale-[1.04] sm:bottom-7 sm:right-7 ${
+        visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-6 opacity-0'
+      }`}
+    >
+      <span className="absolute inset-0 -z-10 animate-pulse-ring rounded-full bg-emerald-500/40" aria-hidden="true" />
+      <span className="relative flex h-7 w-7 items-center justify-center">
+        <Icon name="MessageCircle" className="h-7 w-7" strokeWidth={2.2} />
+      </span>
+      <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-bold opacity-0 transition-all duration-500 group-hover:max-w-[11rem] group-hover:opacity-100">
+        Quick Chat
+      </span>
+    </a>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ *  Utilities + App
+ * ------------------------------------------------------------------ */
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY - 72;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}
+
+function LandingRoot() {
+  return (
+    <React.Fragment>
+      <Header />
+      <main>
+        <Hero />
+        <BmiCalculator />
+        <Pricing />
+        <Facilities />
+        <Timing />
+      </main>
+      <LocationFooter />
+      <FloatingWhatsApp />
+    </React.Fragment>
+  );
+}
+
+const rootEl = document.getElementById('root');
+if (window.ReactDOM && window.ReactDOM.createRoot) {
+  window.ReactDOM.createRoot(rootEl).render(<LandingRoot />);
+} else {
+  window.ReactDOM.render(<LandingRoot />, rootEl);
+}
+</script>
+</body>
+</html>
