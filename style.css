@@ -1,0 +1,380 @@
+/* =========================================================
+   RESPONSIVE PATCH
+   Existing design/features untouched
+   Only fixes layout, overflow and responsive behavior
+   ========================================================= */
+
+/* Global overflow protection */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* Prevent long text from breaking layouts */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+li,
+td,
+th {
+  overflow-wrap: break-word;
+}
+
+/* Root width protection */
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* =========================================================
+   MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 639px) {
+
+  /* General container protection */
+  .mx-auto {
+    max-width: 100%;
+  }
+
+  /* Hero heading */
+  h1.display-tight {
+    font-size: clamp(2.65rem, 13vw, 3.35rem) !important;
+    line-height: 0.94 !important;
+    word-break: normal;
+  }
+
+  /* Section headings */
+  h2.display-tight {
+    font-size: clamp(2.35rem, 11vw, 3rem) !important;
+    line-height: 0.96 !important;
+  }
+
+  h3.display-tight {
+    line-height: 1 !important;
+  }
+
+  /* Hero spacing */
+  #top > div:last-child {
+    padding-top: 2.5rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Hero buttons */
+  #top a,
+  #top button {
+    max-width: 100%;
+  }
+
+  /* Stat card */
+  #top .max-w-sm,
+  #top .max-w-md {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Prevent stat values from overflowing */
+  #top .text-4xl {
+    font-size: 2rem !important;
+  }
+
+  /* Section horizontal padding */
+  section > .mx-auto,
+  footer > .mx-auto {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Cards */
+  article,
+  .rounded-3xl {
+    max-width: 100%;
+  }
+
+  /* Pricing cards */
+  #pricing article {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #pricing article .text-5xl {
+    font-size: 2.7rem !important;
+  }
+
+  /* Pricing CTA */
+  #pricing .flex-col > .shrink-0 {
+    width: 100%;
+  }
+
+  /* BMI calculator */
+  #bmi input[type="number"] {
+    width: 4.5rem;
+    min-width: 0;
+  }
+
+  #bmi .text-7xl {
+    font-size: 4.5rem !important;
+  }
+
+  #bmi .text-8xl {
+    font-size: 5rem !important;
+  }
+
+  /* BMI result layout */
+  #bmi .flex.items-end.gap-4 {
+    gap: 0.75rem !important;
+  }
+
+  /* BMI scale labels */
+  #bmi .tracking-wider {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Facilities */
+  #facilities article {
+    min-width: 0;
+  }
+
+  #facilities article.lg\\:flex {
+    display: block;
+  }
+
+  /* Facilities images */
+  #facilities img {
+    max-width: 100%;
+  }
+
+  /* Timing table */
+  #timing .overflow-x-auto {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #timing table {
+    min-width: 500px;
+  }
+
+  /* Footer details */
+  #location li,
+  #location a {
+    min-width: 0;
+  }
+
+  /* Contact text */
+  #location .break-words {
+    overflow-wrap: anywhere;
+  }
+
+  /* Map */
+  #location iframe {
+    width: 100%;
+    max-width: 100%;
+    height: 360px !important;
+  }
+
+  /* Footer bottom */
+  #location footer,
+  footer {
+    max-width: 100%;
+  }
+
+  /* Floating WhatsApp */
+  .fixed.bottom-5.right-5 {
+    right: 1rem !important;
+    bottom: 1rem !important;
+  }
+
+  /* Avoid oversized buttons */
+  a.inline-flex,
+  button.inline-flex {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Mobile nav */
+  header nav {
+    max-width: 100%;
+  }
+
+  /* Logo protection */
+  header a.group {
+    min-width: 0;
+    max-width: calc(100vw - 100px);
+  }
+
+  header a.group span {
+    min-width: 0;
+  }
+
+  /* Hide phone text if needed on narrow screens */
+  header .display-tight {
+    white-space: nowrap;
+  }
+
+}
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  h1.display-tight {
+    font-size: 2.45rem !important;
+  }
+
+  h2.display-tight {
+    font-size: 2.15rem !important;
+  }
+
+  #top .text-lg {
+    font-size: 0.95rem !important;
+  }
+
+  #top .max-w-md {
+    padding: 1.25rem !important;
+  }
+
+  #top .grid-cols-2 {
+    column-gap: 0.75rem !important;
+  }
+
+  #bmi .text-7xl,
+  #bmi .text-8xl {
+    font-size: 4rem !important;
+  }
+
+  #pricing article {
+    padding: 1.25rem !important;
+  }
+
+  #pricing article .text-5xl {
+    font-size: 2.35rem !important;
+  }
+
+}
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  h1.display-tight {
+    font-size: clamp(4rem, 9vw, 5.5rem) !important;
+  }
+
+  h2.display-tight {
+    font-size: clamp(3rem, 6vw, 4.5rem) !important;
+  }
+
+  /* Keep hero columns stacked until large desktop */
+  #top .lg\\:grid-cols-\\[1\\.15fr_\\.85fr\\] {
+    grid-template-columns: 1fr;
+  }
+
+  #top .lg\\:justify-self-end {
+    justify-self: start;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #top .max-w-md {
+    max-width: 100%;
+  }
+
+  /* Pricing cards */
+  #pricing .lg\\:grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Featured card spans full width when needed */
+  #pricing article {
+    min-width: 0;
+  }
+
+  /* Facilities */
+  #facilities .sm\\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  /* Footer */
+  #location .lg\\:grid-cols-\\[\\.95fr_1\\.05fr\\] {
+    grid-template-columns: 1fr;
+  }
+
+  #location iframe {
+    height: 430px !important;
+  }
+
+}
+
+/* =========================================================
+   LAPTOPS / MEDIUM DESKTOP
+   ========================================================= */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  h1.display-tight {
+    font-size: clamp(4.5rem, 6vw, 5.6rem) !important;
+  }
+
+  /* Prevent hero content from becoming too wide */
+  #top .grid {
+    min-width: 0;
+  }
+
+  #top .max-w-xl {
+    max-width: 34rem;
+  }
+
+}
+
+/* =========================================================
+   LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1280px) {
+
+  #root {
+    max-width: 100%;
+  }
+
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
