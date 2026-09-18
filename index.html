@@ -889,17 +889,39 @@ function Facilities() {
 }
 
 /* ------------------------------------------------------------------ *
- *  Timing
+ *  Timing Component (Fully Responsive - No cut-off on mobile)
  * ------------------------------------------------------------------ */
 const SCHEDULE = [
-  { shift: 'Morning Shift', icon: 'Sparkles', slot: '06:00 AM — 11:00 AM', days: 'Monday — Saturday', note: 'Best for early risers & empty-floor training', tone: 'amber' },
-  { shift: 'Evening Shift', icon: 'Flame', slot: '04:00 PM — 11:00 PM', days: 'Monday — Saturday', note: 'Peak hours — trainers on the floor', tone: 'orange' }
+  {
+    shift: 'Morning Shift',
+    icon: 'Sparkles',
+    slot: '06:00 AM — 11:00 AM',
+    days: 'Mon — Sat',
+    note: 'Best for early risers & empty-floor training',
+    tone: 'amber'
+  },
+  {
+    shift: 'Evening Shift',
+    icon: 'Flame',
+    slot: '04:00 PM — 11:00 PM',
+    days: 'Mon — Sat',
+    note: 'Peak hours — trainers on the floor',
+    tone: 'orange'
+  },
+  {
+    shift: 'Sunday',
+    icon: 'Clock',
+    slot: 'Closed',
+    days: 'Sunday',
+    note: 'Rest & muscle recovery',
+    tone: 'zinc'
+  }
 ];
 
 function Timing() {
   return (
-    <section id="timing" style={{ animation: 'fadeIn .6s ease both' }} className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="timing" className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
             eyebrow="Timing & Schedule"
@@ -909,99 +931,115 @@ function Timing() {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[1fr_.85fr]">
+        <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_.9fr] lg:items-start">
+          
+          {/* Shift Schedule Box */}
           <Reveal>
-            <div className="overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/40">
-              <div className="flex items-center gap-3 border-b border-white/10 bg-zinc-900/60 px-6 py-5">
+            <div className="rounded-2xl border border-white/10 bg-zinc-900/50 p-4 sm:p-6 backdrop-blur">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-4 mb-4">
                 <Icon name="CalendarDays" className="h-5 w-5 text-amber-500" />
-                <h3 className="display-tight text-xl font-extrabold text-white">Weekly Training Shifts</h3>
+                <h3 className="display-tight text-xl font-bold text-white tracking-wide">
+                  Weekly Training Shifts
+                </h3>
               </div>
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[540px] text-left">
-                  <thead>
-                    <tr className="border-b border-white/5 text-[0.68rem] uppercase tracking-[0.16em] text-zinc-500">
-                      <th scope="col" className="px-6 py-4 font-bold">Shift</th>
-                      <th scope="col" className="px-6 py-4 font-bold">Timing</th>
-                      <th scope="col" className="px-6 py-4 font-bold">Days</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {SCHEDULE.map((s) => (
-                      <tr key={s.shift} className="border-b border-white/5 transition-colors duration-300 last:border-0 hover:bg-amber-500/[0.06]">
-                        <td className="px-6 py-5">
-                          <span className="flex items-center gap-3">
-                            <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${s.tone === 'amber' ? 'bg-amber-500/15 text-amber-500' : 'bg-orange-600/15 text-orange-500'}`}>
-                              <Icon name={s.icon} className="h-5 w-5" />
-                            </span>
-                            <span>
-                              <span className="block font-semibold text-white">{s.shift}</span>
-                              <span className="block text-xs text-zinc-500">{s.note}</span>
-                            </span>
-                          </span>
-                        </td>
-                        <td className="px-6 py-5 font-mono text-sm font-semibold text-amber-400">{s.slot}</td>
-                        <td className="px-6 py-5 text-sm text-zinc-400">{s.days}</td>
-                      </tr>
-                    ))}
-                    <tr className="bg-zinc-950/40">
-                      <td className="px-6 py-5">
-                        <span className="flex items-center gap-3">
-                          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 text-zinc-400">
-                            <Icon name="Clock" className="h-5 w-5" />
-                          </span>
-                          <span>
-                            <span className="block font-semibold text-zinc-200">Sunday</span>
-                            <span className="block text-xs text-zinc-500">Closed — rest & recover</span>
-                          </span>
+
+              {/* Stacked Layout - 100% responsive, no horizontal scroll needed */}
+              <div className="space-y-3">
+                {SCHEDULE.map((s) => {
+                  const isClosed = s.slot === 'Closed';
+                  return (
+                    <div
+                      key={s.shift}
+                      className={`flex flex-col gap-3 rounded-xl border p-4 sm:flex-row sm:items-center sm:justify-between transition-colors ${
+                        isClosed 
+                          ? 'border-white/5 bg-zinc-950/40 opacity-75' 
+                          : 'border-white/5 bg-zinc-900/80 hover:border-amber-500/30'
+                      }`}
+                    >
+                      {/* Left: Icon & Title */}
+                      <div className="flex items-start gap-3 min-w-0">
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+                            s.tone === 'amber'
+                              ? 'bg-amber-500/15 text-amber-500'
+                              : s.tone === 'orange'
+                              ? 'bg-orange-600/15 text-orange-500'
+                              : 'bg-zinc-800 text-zinc-400'
+                          }`}
+                        >
+                          <Icon name={s.icon} className="h-5 w-5" />
                         </span>
-                      </td>
-                      <td className="px-6 py-5 text-sm font-medium text-zinc-500">—</td>
-                      <td className="px-6 py-5 text-sm text-zinc-500">Closed</td>
-                    </tr>
-                  </tbody>
-                </table>
+                        <div className="min-w-0">
+                          <p className="font-bold text-white text-base leading-snug truncate">{s.shift}</p>
+                          <p className="text-xs text-zinc-400 leading-snug mt-0.5">{s.note}</p>
+                        </div>
+                      </div>
+
+                      {/* Right: Time & Days */}
+                      <div className="flex items-center justify-between sm:flex-col sm:items-end gap-1 pt-2 sm:pt-0 border-t border-white/5 sm:border-0">
+                        <span
+                          className={`font-mono text-xs sm:text-sm font-bold tracking-tight ${
+                            isClosed ? 'text-zinc-500' : 'text-amber-400'
+                          }`}
+                        >
+                          {s.slot}
+                        </span>
+                        <span className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
+                          {s.days}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </Reveal>
 
-          <div className="space-y-6">
-            <Reveal delay={90}>
-              <div className="relative overflow-hidden rounded-3xl border border-white/10">
-                <img src="cardio.jpg" alt="Evening peak hours on the cardio deck at Model Town Gym" className="h-44 w-full object-cover sm:h-52" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/45 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className="display-tight text-2xl font-extrabold text-white">Train at your best hour</p>
-                  <p className="mt-1 text-xs text-zinc-400">Morning sessions are quietest — ideal if you like the floor to yourself.</p>
+          {/* Right Side Cards */}
+          <div className="space-y-5">
+            <Reveal delay={80}>
+              <div className="relative overflow-hidden rounded-2xl border border-white/10">
+                <img
+                  src="cardio.jpg"
+                  alt="Evening peak hours on the cardio deck at Model Town Gym"
+                  className="h-44 w-full object-cover sm:h-48"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                  <p className="display-tight text-xl font-bold text-white">Train at your best hour</p>
+                  <p className="mt-1 text-xs text-zinc-300">
+                    Morning sessions are quietest — ideal if you like the floor to yourself.
+                  </p>
                 </div>
               </div>
             </Reveal>
 
-            <Reveal delay={140}>
-              <div className="rounded-3xl border border-emerald-500/25 bg-emerald-500/[0.07] p-6">
+            <Reveal delay={120}>
+              <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.06] p-5 sm:p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-400">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400">
                     <Icon name="Clock" className="h-5 w-5" />
                   </span>
-                  <p className="display-tight text-xl font-extrabold text-white">First visit? Come any shift.</p>
+                  <p className="display-tight text-lg font-bold text-white">First visit? Come any shift.</p>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-zinc-300">
                   Your free trial day works on either shift. Message us and we will keep a trainer free to walk you through the floor.
                 </p>
-                <div className="mt-5">
-                  <Btn href={WA_FREE_TRIAL} target="_blank" rel="noopener noreferrer" variant="whatsapp" className="w-full">
-                    <Icon name="MessageCircle" className="h-5 w-5" />
+                <div className="mt-4">
+                  <Btn href={WA_FREE_TRIAL} target="_blank" rel="noopener noreferrer" variant="whatsapp" className="w-full text-xs sm:text-sm py-3">
+                    <Icon name="MessageCircle" className="h-4 w-4" />
                     Book My Free Trial Day
                   </Btn>
                 </div>
               </div>
             </Reveal>
           </div>
+
         </div>
       </div>
     </section>
   );
 }
-
 /* ------------------------------------------------------------------ *
  *  Location + Footer
  * ------------------------------------------------------------------ */
